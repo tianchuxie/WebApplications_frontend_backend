@@ -1,0 +1,51 @@
+
+body {
+    background-image: url(background.jpg);
+    background-color: #cccccc;
+    background-size:100%;
+    text-align:center;
+}
+
+#header{padding:35px 0; text-align:center;}
+#logo{margin:0 0 5px 0;}
+#logo *{margin:0; padding:0;}
+#logo h1{font-size:56px; font-variant:small-caps;}
+a{outline:none; text-decoration:none;}
+
+
+
+hr {
+    solid #555555;
+}
+
+/* Classes for processDatabaseDisplayTask.php */
+.taskSpan{
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    color: #717171;
+    border-radius: 5px;
+    font-size: large;
+    margin-left: 2em;
+    display:none;
+    padding: 0 5px;
+}
+
+.taskItem {
+    font-size: xx-large;
+    padding-left: 3.5em;
+    text-align: left;
+}
+
+.taskFirst {
+    padding-reight: 0;
+}
+
+.taskItemHover .taskSpan{
+    display:inline-block;
+    vertical-align: middle;
+}
+
+#tableTask {
+    margin-left:auto; 
+    margin-right:auto;
+}

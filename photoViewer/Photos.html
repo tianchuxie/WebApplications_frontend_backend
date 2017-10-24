@@ -1,0 +1,167 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <title>Get/Set Attribute in HTML Element</title>
+		<style type="text/css">
+	       body {
+			background: #FFF1CC;
+			font-size: 90%;				  
+		}	
+			.double {
+				border-style: double;
+			}
+			h1 {
+				text-decoration: underline;
+			}
+	    </style>
+    </head>
+    
+    <body onload = "main()">
+		 <h1>Viewer</h1>
+        <form>
+	        <img class = "double" id="theImage" src="InitialImage.jpg" alt="viewerImg" width="444" height="293"/>
+			<br/><br/><hr/>
+			<p>
+				Photo's Folder: <input type="text" name="folder" id = "folder" value = "umcp/" /><br/><br/>
+				Common Name: <input type = "text" name = "comm" id = "comm" value = "college"/><br/><br/>
+				Start Photo Number <input type = "text" name = "stat" id = "stat" value = "1" maxlength="4" size="4"/>
+				End Photo Number <input type = "text" name = "end" id = "end" value = "1" maxlength="4" size="4"/>
+			</p>
+			<br/>
+			<input type="button" id="slide" value="Slide show" />
+			<input type="button" id="random" value="Random Slide Show" />
+			<input type="button" id="pre" value="Previous Slide" />
+			<input type="button" id="next" value="Next Slide" /> <br/><br/>
+			
+           <input type="button" id="reset" value="reset" />
+	    </form>
+		    
+        <script>
+			function main() {
+                var buttonElement = document.getElementById("slide");
+                buttonElement.onclick = slide;
+				var buttonElement = document.getElementById("random");
+                buttonElement.onclick = random;
+				var buttonElement = document.getElementById("reset");
+                buttonElement.onclick = reset; 
+		
+            }
+	        
+			function reset(){
+				 
+				 document.getElementById("theImage").setAttribute("src", "InitialImage.jpg");
+				 document.getElementById("folder").value = "umcp/";
+				 document.getElementById("comm").value = "college";
+				 document.getElementById("stat").value = "1";
+				 document.getElementById("end").value = "1";
+			
+				
+			}
+			function getArrayPhotosNames(){
+			  	var dir = document.getElementById("folder").value +document.getElementById("comm").value;
+				var stat = parseInt (document.getElementById("stat").value);
+				var end = parseInt (document.getElementById("end").value);
+				var count = end -stat + 1;
+				if (count <= 0) {
+					alert("Invalid Numbers")
+				}
+			
+				var photos = Array(count);
+				var i;
+				var k = 0;
+				for (i = stat; i <= end; i++){
+					photos[k] = dir + i +".jpg";
+					k = k + 1;
+				}
+	
+				return photos;
+			}
+			
+			function randomize (){
+				var count = photos.length;
+				var newpho = Array(count);
+				var check = Array(count);
+				var j;
+			
+				for (j = 0; j < count; j++){
+					
+			
+			
+				    samecheck = false;
+					while (samecheck != true){
+					
+						samecheck = true;
+						x = Math.floor((Math.random() * count) + 1) - 1 ;
+						var i;
+						for (i = 0; i < j; i++) {
+							if (x ==  check [i]) {
+								samecheck = false;
+					
+							}
+						}
+					} 
+				
+					check[j] = x;
+					newpho[j] = photos[x];
+					
+				
+	
+				}
+				
+				
+				photos = newpho;
+			}
+			function random() {
+				k = 0;
+			    photos = getArrayPhotosNames();
+				randomize(photos);
+                var imageElement = document.getElementById("theImage");
+			
+                imageElement.setAttribute("src", photos[k]);
+				var buttonElement = document.getElementById("pre");
+                buttonElement.onclick = prev;
+				var buttonElement = document.getElementById("next");
+                buttonElement.onclick = next;
+				
+			}
+            function slide() {
+			    k = 0;
+			    photos = getArrayPhotosNames();
+                var imageElement = document.getElementById("theImage");
+			
+                imageElement.setAttribute("src", photos[k]);
+				var buttonElement = document.getElementById("pre");
+                buttonElement.onclick = prev;
+				var buttonElement = document.getElementById("next");
+                buttonElement.onclick = next;
+				
+            }
+			
+			function prev(){
+		
+			 k--;
+			 if (k < 0) {
+				k = photos.length - 1;
+			 }
+			 imageElement = document.getElementById("theImage");
+			 imageElement.setAttribute("src", photos[k]);
+			  
+			}
+			function next(){
+		
+			 k++;
+			 if (k > photos.length - 1) {
+				k = 0;
+			 }
+			 imageElement = document.getElementById("theImage");
+			 imageElement.setAttribute("src", photos[k]);
+			  
+			}
+            
+            
+   
+        </script>
+    </body>
+</html>

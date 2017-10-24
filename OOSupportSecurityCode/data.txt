@@ -1,0 +1,5 @@
+<h1>Proposal</h1>
+<p>
+We use a<b to indicate a is less than b and b>a to represent b greater than a.
+Some people are "dedicated" to programming while others are 'committed'.
+</p>

@@ -1,0 +1,48 @@
+/* This is the css file for the details in the html file*/
+
+body {font-family: arial, Helvetica, "Times New Roman", sans-serif; 
+      background: #CCFFFF;
+      color: teal;
+      font-size: 70%;	/* try different percentages */					  
+}
+
+:link {
+	color: blue;	
+}
+
+a:visited {
+	color:purple;
+}
+
+a:hover {
+	color: red;
+}
+
+a:active {
+	color: gray;
+}
+
+pre:hover {
+	font-size: 2em;
+    color: #FFFF00;
+    text-align: center;	
+}
+
+#roundCorner {
+    border-radius: 35px;
+    background: #8AC007;
+    padding: 40px; 
+    width: 200px;
+    height: 5px;    
+}
+h1 {
+    text-shadow: 2px 2px blue;
+}
+
+.centerRed {
+    text-align: center;
+    color: red;
+}
+
+ul.a {list-style-type: lower-latin;}
+ol.b {list-style-type: square;}
